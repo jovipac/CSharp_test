@@ -10,7 +10,8 @@ INSERT INTO [dbo].[Users]
            (1
            ,'Super Admin'
            ,'admin'
-           ,'superadmin')
+           ,'bW2Cn69UIiZH++qhylCqQw==')
+      -- superadmin
 GO
 
 

@@ -5,6 +5,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace ReservaAereas
 {
@@ -101,11 +102,12 @@ namespace ReservaAereas
         private static DataTable LookupUser(string Username)
         {
             /*
-             * The reason I return a datatable here is so you can also bring back the user's full
-             * name, email address, security rights in the application, etc. I have a "User" class
-             * where I defined meta information for users.
-             */
-            const string connStr = "Data Source=802PACAJOJ\\SQLEXPRESS;Initial Catalog=flujoaereo;Integrated Security=True;";
+            * The reason I return a datatable here is so you can also bring back the user's full
+            * name, email address, security rights in the application, etc. I have a "User" class
+            * where I defined meta information for users.
+            * const string connStr = "Data Source=SQLEXPRESS;Initial Catalog=flujoaereo;Integrated Security=True;";
+            */
+            string connStr = Properties.Settings.Default.lConnection;
             const string query = "Select Password From Users (NOLOCK) Where UserName = @UserName";
             DataTable result = new DataTable();
             using (SqlConnection conn = new SqlConnection(connStr))

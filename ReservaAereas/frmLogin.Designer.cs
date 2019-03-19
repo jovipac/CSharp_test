@@ -37,41 +37,46 @@
             // 
             // textBoxUsername
             // 
-            this.textBoxUsername.Location = new System.Drawing.Point(165, 53);
+            this.textBoxUsername.Location = new System.Drawing.Point(248, 82);
+            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(100, 20);
+            this.textBoxUsername.Size = new System.Drawing.Size(148, 26);
             this.textBoxUsername.TabIndex = 0;
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(165, 101);
+            this.textBoxPassword.Location = new System.Drawing.Point(248, 155);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPassword.Size = new System.Drawing.Size(148, 26);
             this.textBoxPassword.TabIndex = 1;
             // 
             // labelUsername
             // 
             this.labelUsername.AutoSize = true;
-            this.labelUsername.Location = new System.Drawing.Point(93, 53);
+            this.labelUsername.Location = new System.Drawing.Point(140, 82);
+            this.labelUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(43, 13);
+            this.labelUsername.Size = new System.Drawing.Size(64, 20);
             this.labelUsername.TabIndex = 2;
             this.labelUsername.Text = "Usuario";
             // 
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(93, 104);
+            this.labelPassword.Location = new System.Drawing.Point(140, 160);
+            this.labelPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(34, 13);
+            this.labelPassword.Size = new System.Drawing.Size(48, 20);
             this.labelPassword.TabIndex = 3;
             this.labelPassword.Text = "Clave";
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(283, 166);
+            this.buttonLogin.Location = new System.Drawing.Point(424, 255);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(75, 23);
+            this.buttonLogin.Size = new System.Drawing.Size(112, 35);
             this.buttonLogin.TabIndex = 4;
             this.buttonLogin.Text = "Iniciar";
             this.buttonLogin.UseVisualStyleBackColor = true;
@@ -79,14 +84,17 @@
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 246);
+            this.ClientSize = new System.Drawing.Size(580, 378);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxUsername);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";

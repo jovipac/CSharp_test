@@ -5,12 +5,12 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
-using System.Configuration;
 
 namespace ReservaAereas
 {
     public partial class frmLogin : Form
     {
+        public frmLogin OwningLoginForm { get; set; }
         /// <summary>
         /// Key for the crypto provider
         /// </summary>
@@ -19,6 +19,7 @@ namespace ReservaAereas
         /// Initialization vector for the crypto provider
         /// </summary>
         private static readonly byte[] _initVector = { 0xE1, 0xF1, 0xA6, 0xBB, 0xA9, 0x5B, 0x31, 0x2F, 0x81, 0x2E, 0x17, 0x4C, 0xA2, 0x81, 0x53, 0x61 };
+
         public frmLogin()
         {
             InitializeComponent();
@@ -135,7 +136,7 @@ namespace ReservaAereas
             {
                 //Focus box before showing a message
                 textBoxUsername.Focus();
-                MessageBox.Show("Enter your username", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ingrese su nombre de usuario", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //Focus again afterwards, sometimes people double click message boxes and select another control accidentally
                 textBoxUsername.Focus();
                 return;
@@ -143,7 +144,7 @@ namespace ReservaAereas
             else if (string.IsNullOrEmpty(textBoxPassword.Text))
             {
                 textBoxPassword.Focus();
-                MessageBox.Show("Enter your password", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ingrese su contraseña", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 textBoxPassword.Focus();
                 return;
             }
@@ -153,7 +154,7 @@ namespace ReservaAereas
                 if (dt.Rows.Count == 0)
                 {
                     textBoxUsername.Focus();
-                    MessageBox.Show("Invalid username.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Nombre de usuario erroneo.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     textBoxUsername.Focus();
                     return;
                 }
@@ -167,13 +168,15 @@ namespace ReservaAereas
                     string appPassword = Encrypt(textBoxPassword.Text); //we store the password as encrypted in the DB
                     if (string.Compare(dbPassword, appPassword) == 0)
                     {
-                        //frmLogin.ActiveForm.Close();
+                        this.Close();
+                        if (OwningLoginForm != null)
+                            OwningLoginForm.Close();
                     }
                     else
                     {
                         //You may want to use the same error message so they can't tell which field they got wrong
                         textBoxPassword.Focus();
-                        MessageBox.Show("Invalid Password", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Contraseña erronea", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         textBoxPassword.Focus();
                         return;
                     }

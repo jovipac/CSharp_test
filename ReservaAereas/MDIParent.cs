@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ReservaAereas.Properties;
 
 namespace ReservaAereas
 {
@@ -19,20 +20,25 @@ namespace ReservaAereas
             InitializeComponent();
         }
 
-        private void ShowNewForm(object sender, EventArgs e)
+        private void ShowAboutForm(object sender, EventArgs e)
         {
-            Form childForm = new Form();
-            childForm.MdiParent = this;
-            childForm.Text = "Ventana " + childFormNumber++;
-            childForm.Show();
+            frmAboutBox AboutForm = new frmAboutBox();
+            AboutForm.MdiParent = this;
+            AboutForm.Show();
+        }
+
+        private void ShowLandingTrackForm(object sender, EventArgs e)
+        {
+            Form LandingTrackForm = new frmLandingTrack();
+            LandingTrackForm.MdiParent = this;
+            LandingTrackForm.Show();
         }
 
         private void ShowLogin(object sender, EventArgs e)
         {
-            Form childForm = new frmLogin();
-            childForm.MdiParent = this;
-            childForm.Text = "Ventana " + childFormNumber++;
-            childForm.Show();
+            frmLogin LoginDialog = new frmLogin();
+            LoginDialog.OwningLoginForm = LoginDialog;
+            LoginDialog.ShowDialog();
         }
 
         private void OpenFile(object sender, EventArgs e)
@@ -74,11 +80,6 @@ namespace ReservaAereas
         {
         }
 
-        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            toolStrip.Visible = toolBarToolStripMenuItem.Checked;
-        }
-
         private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             statusStrip.Visible = statusBarToolStripMenuItem.Checked;
@@ -111,5 +112,6 @@ namespace ReservaAereas
                 childForm.Close();
             }
         }
+
     }
 }

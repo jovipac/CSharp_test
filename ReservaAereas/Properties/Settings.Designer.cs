@@ -26,22 +26,35 @@ namespace ReservaAereas.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-C14KJ7F\\SQLEXPRESS;Initial Catalog=flujoaereo;Persist Securit" +
-            "y Info=True;")]
-        public string con {
-            get {
-                return ((string)(this["con"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-C14KJ7F\\SQLEXPRESS;Initial Catalog=flujoaereo;Persist Securit" +
-            "y Info=True;User ID=sa;Password=Adminsa$")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(local)\\SQLEXPRESS;Initial Catalog=flujoaereo;Persist Security Info=T" +
+            "rue;User ID=sa;Password=Adminsa$")]
         public string lConnection {
             get {
                 return ((string)(this["lConnection"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int TrackStatusCode {
+            get {
+                return ((int)(this["TrackStatusCode"]));
+            }
+            set {
+                this["TrackStatusCode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int PlaneStatusCode {
+            get {
+                return ((int)(this["PlaneStatusCode"]));
+            }
+            set {
+                this["PlaneStatusCode"] = value;
             }
         }
     }

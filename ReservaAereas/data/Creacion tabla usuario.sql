@@ -9,11 +9,11 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Users](
-	[Id] [int] NOT NULL,
+	[Id] [int] IDENTITY NOT NULL,
 	[Fullname] [nvarchar](100) NULL,
 	[Username] [nvarchar](25) NOT NULL,
 	[Password] [nvarchar](50) NOT NULL,
- CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [Users_pk] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -21,3 +21,9 @@ CREATE TABLE [dbo].[Users](
 GO
 
 
+CREATE TABLE Status (
+                Id INT IDENTITY NOT NULL,
+                Name NVARCHAR(50) NOT NULL,
+                Category_id INT NOT NULL,
+                CONSTRAINT Status_pk PRIMARY KEY (Id)
+);

@@ -27,11 +27,11 @@ namespace ReservaAereas
             AboutForm.Show();
         }
 
-        private void ShowLandingTrackForm(object sender, EventArgs e)
+        private void ShowRunwayForm(object sender, EventArgs e)
         {
-            Form LandingTrackForm = new frmLandingTrack();
-            LandingTrackForm.MdiParent = this;
-            LandingTrackForm.Show();
+            Form RunwayForm = new frmRunway();
+            RunwayForm.MdiParent = this;
+            RunwayForm.Show();
         }
 
         private void ShowLogin(object sender, EventArgs e)

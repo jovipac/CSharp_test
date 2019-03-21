@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.runwayBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.flujoaereoDataSet = new ReservaAereas.flujoaereoDataSet();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.statusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusTableAdapter = new ReservaAereas.flujoaereoDataSetTableAdapters.StatusTableAdapter();
             this.runwayTableAdapter = new ReservaAereas.flujoaereoDataSetTableAdapters.RunwayTableAdapter();
@@ -52,7 +52,7 @@
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.runwayBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flujoaereoDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -67,22 +67,22 @@
             this.flujoaereoDataSet.DataSetName = "flujoaereoDataSet";
             this.flujoaereoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView.AutoGenerateColumns = false;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.Status_id,
             this.Description});
-            this.dataGridView1.DataSource = this.runwayBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 227);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(668, 395);
-            this.dataGridView1.TabIndex = 8;
+            this.dataGridView.DataSource = this.runwayBindingSource;
+            this.dataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView.Location = new System.Drawing.Point(0, 227);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(668, 395);
+            this.dataGridView.TabIndex = 8;
             // 
             // statusBindingSource
             // 
@@ -250,14 +250,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 622);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridView);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmRunway";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pistas de Aterrizaje";
             this.Load += new System.EventHandler(this.frmRunway_Load);
             ((System.ComponentModel.ISupportInitialize)(this.runwayBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flujoaereoDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -266,7 +267,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView;
         private flujoaereoDataSet flujoaereoDataSet;
         private System.Windows.Forms.BindingSource statusBindingSource;
         private flujoaereoDataSetTableAdapters.StatusTableAdapter statusTableAdapter;

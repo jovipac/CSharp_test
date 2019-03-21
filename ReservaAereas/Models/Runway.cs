@@ -1,12 +1,10 @@
 namespace ReservaAereas.Models
 {
-    using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("Status")]
-    public partial class Status
+    [Table("Runway")]
+    public partial class Runway
     {
         public int Id { get; set; }
 
@@ -14,6 +12,9 @@ namespace ReservaAereas.Models
         [StringLength(50)]
         public string Name { get; set; }
 
-        public int Category_id { get; set; }
+        [StringLength(100)]
+        public string Description { get; set; }
+
+        public int? Status_id { get; set; }
     }
 }

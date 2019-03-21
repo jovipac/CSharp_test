@@ -5,15 +5,15 @@ namespace ReservaAereas.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("Status")]
-    public partial class Status
+    [Table("Airline")]
+    public partial class Airline
     {
         public int Id { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(100)]
         public string Name { get; set; }
 
-        public int Category_id { get; set; }
+        public int? Status_id { get; set; }
     }
 }

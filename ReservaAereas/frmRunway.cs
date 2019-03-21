@@ -41,7 +41,7 @@ namespace ReservaAereas
             DataTable dt = new DataTable();
             adapt = new SqlDataAdapter("SELECT * FROM Runway", con);
             adapt.Fill(dt);
-            dataGridView1.DataSource = dt;
+            dataGridView.DataSource = dt;
             con.Close();
         }
 

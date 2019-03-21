@@ -49,7 +49,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,6 +69,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>flujoaereoDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmAirline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAirline.Designer.cs">
+      <DependentUpon>frmAirline.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRunway.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,16 +87,25 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\ICopyPasteable.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MDIParent.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MDIParent.Designer.cs">
       <DependentUpon>MDIParent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Airline.cs" />
     <Compile Include="Models\DBTools.cs" />
+    <Compile Include="Models\Runway.cs" />
     <Compile Include="Models\Status.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAirline.resx">
+      <DependentUpon>frmAirline.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRunway.resx">
       <DependentUpon>frmRunway.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +144,7 @@
     <None Include="flujoaereoDataSet.xss">
       <DependentUpon>flujoaereoDataSet.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -157,6 +176,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

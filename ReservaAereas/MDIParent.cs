@@ -34,33 +34,18 @@ namespace ReservaAereas
             RunwayForm.Show();
         }
 
+        private void ShowAirlineForm(object sender, EventArgs e)
+        {
+            Form AirlineForm = new frmAirline();
+            AirlineForm.MdiParent = this;
+            AirlineForm.Show();
+        }
+
         private void ShowLogin(object sender, EventArgs e)
         {
             frmLogin LoginDialog = new frmLogin();
             LoginDialog.OwningLoginForm = LoginDialog;
             LoginDialog.ShowDialog();
-        }
-
-        private void OpenFile(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = openFileDialog.FileName;
-            }
-        }
-
-        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
-            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = saveFileDialog.FileName;
-            }
         }
 
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
@@ -70,14 +55,29 @@ namespace ReservaAereas
 
         private void CutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ICopyPasteable control = sender as ICopyPasteable;
+            if (control != null)
+            {
+                control.CutToClipboard();
+            }
         }
 
         private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ICopyPasteable control = sender as ICopyPasteable;
+            if (control != null)
+            {
+                control.CopyToClipboard();
+            }
         }
 
         private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ICopyPasteable control = sender as ICopyPasteable;
+            if (control != null)
+            {
+                control.PasteFromClipboard();
+            }
         }
 
         private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)

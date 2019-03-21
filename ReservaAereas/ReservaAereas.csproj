@@ -141,6 +141,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="data\Creacion tabla de los diferentes status.sql" />
+    <Content Include="data\Creacion tabla pistas de aterrizaje.sql" />
+    <Content Include="data\Creacion tabla usuario.sql" />
+    <Content Include="data\Insercion de nuevo usuario.sql" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

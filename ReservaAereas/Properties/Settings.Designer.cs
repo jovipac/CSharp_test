@@ -37,24 +37,36 @@ namespace ReservaAereas.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int TrackStatusCode {
+        public int RunwayStatusCode {
             get {
-                return ((int)(this["TrackStatusCode"]));
+                return ((int)(this["RunwayStatusCode"]));
             }
             set {
-                this["TrackStatusCode"] = value;
+                this["RunwayStatusCode"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
         public int PlaneStatusCode {
             get {
                 return ((int)(this["PlaneStatusCode"]));
             }
             set {
                 this["PlaneStatusCode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public string StatusCode {
+            get {
+                return ((string)(this["StatusCode"]));
+            }
+            set {
+                this["StatusCode"] = value;
             }
         }
     }

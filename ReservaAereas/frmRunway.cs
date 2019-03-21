@@ -24,7 +24,7 @@ namespace ReservaAereas
         {
             InitializeComponent();
             DBTools cmbTools = new DBTools();
-            int categoryCode = Properties.Settings.Default.TrackStatusCode;
+            int categoryCode = Properties.Settings.Default.RunwayStatusCode;
             //cmbTools.FillDropDownList( $"SELECT * FROM Status WHERE Category_id = {categoryCode}",cmb_StatusId );
         }
 
@@ -32,7 +32,7 @@ namespace ReservaAereas
         {
             txt_Name.Text = "";
             txt_Description.Text = "";
-            ID = 0;
+            txt_Id.Text = "0";
         }
 
         private void DisplayData()
@@ -61,6 +61,7 @@ namespace ReservaAereas
                 cmd.Parameters.AddWithValue("@status_id", cmb_StatusId.SelectedIndex);
                 cmd.ExecuteNonQuery();
                 con.Close();
+                Int32.TryParse(txt_Id.Text, out ID);
                 MessageBox.Show("Registro insertado con éxito");
                 DisplayData();
                 ClearData();
@@ -77,11 +78,13 @@ namespace ReservaAereas
         /// <returns></returns>
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
+            Int32.TryParse(txt_Id.Text, out ID);
+
             if (txt_Name.Text != "" && txt_Description.Text != "")
-            {
+            { 
                 cmd = new SqlCommand("UPDATE Runway SET Name=@name,Description=@description,Status_id=@status_id WHERE Id=@id", con);
                 con.Open();
-                cmd.Parameters.AddWithValue("@id", ID);
+                cmd.Parameters.AddWithValue("@id", ID );
                 cmd.Parameters.AddWithValue("@name", txt_Name.Text);
                 cmd.Parameters.AddWithValue("@description", txt_Description.Text);
                 cmd.Parameters.AddWithValue("@status_id", cmb_StatusId.SelectedIndex);
@@ -99,6 +102,7 @@ namespace ReservaAereas
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            Int32.TryParse(txt_Id.Text, out ID);
             if (ID != 0)
             {
                 cmd = new SqlCommand("DELETE Runway WHERE Id=@id", con);
@@ -123,16 +127,15 @@ namespace ReservaAereas
             // TODO: esta línea de código carga datos en la tabla 'flujoaereoDataSet.Status' Puede moverla o quitarla según sea necesario.
             try
             {
-                int categoryCode = ((int)(System.Convert.ChangeType(Properties.Settings.Default.TrackStatusCode, typeof(int))));
+                int categoryCode = ((int)(System.Convert.ChangeType(Properties.Settings.Default.RunwayStatusCode, typeof(int))));
                 this.statusTableAdapter.Fill(this.flujoaereoDataSet.Status);
                 this.statusTableAdapter.FillBy(this.flujoaereoDataSet.Status, categoryCode );
-                ClearData();
+                //ClearData();
             }
             catch (System.Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
-
     }
 }

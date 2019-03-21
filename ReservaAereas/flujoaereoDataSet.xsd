@@ -113,7 +113,16 @@ SELECT Id, Name, Description, Status_id FROM Runway WHERE (Id = @Id)</CommandTex
               <Mapping SourceColumn="Description" DataSetColumn="Description" />
               <Mapping SourceColumn="Status_id" DataSetColumn="Status_id" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="lConnection (Settings)" DbObjectName="flujoaereo.dbo.Runway" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Id, Name, Description, Status_id FROM dbo.Runway</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UsersTableAdapter" GeneratorDataComponentClassName="UsersTableAdapter" Name="Users" UserDataComponentName="UsersTableAdapter">
             <MainSource>
@@ -182,7 +191,7 @@ SELECT Id, Fullname, Username, Password FROM Users WHERE (Id = @Id)</CommandText
   <xs:element name="flujoaereoDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="flujoaereoDataSet" msprop:Generator_UserDSName="flujoaereoDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Status" msprop:Generator_TableClassName="StatusDataTable" msprop:Generator_TableVarName="tableStatus" msprop:Generator_TablePropName="Status" msprop:Generator_RowDeletingName="StatusRowDeleting" msprop:Generator_RowChangingName="StatusRowChanging" msprop:Generator_RowEvHandlerName="StatusRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusRowDeleted" msprop:Generator_UserTableName="Status" msprop:Generator_RowChangedName="StatusRowChanged" msprop:Generator_RowEvArgName="StatusRowChangeEvent" msprop:Generator_RowClassName="StatusRow">
+        <xs:element name="Status" msprop:Generator_TableClassName="StatusDataTable" msprop:Generator_TableVarName="tableStatus" msprop:Generator_RowChangedName="StatusRowChanged" msprop:Generator_TablePropName="Status" msprop:Generator_RowDeletingName="StatusRowDeleting" msprop:Generator_RowChangingName="StatusRowChanging" msprop:Generator_RowEvHandlerName="StatusRowChangeEventHandler" msprop:Generator_RowDeletedName="StatusRowDeleted" msprop:Generator_RowClassName="StatusRow" msprop:Generator_UserTableName="Status" msprop:Generator_RowEvArgName="StatusRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -196,7 +205,7 @@ SELECT Id, Fullname, Username, Password FROM Users WHERE (Id = @Id)</CommandText
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Runway" msprop:Generator_TableClassName="RunwayDataTable" msprop:Generator_TableVarName="tableRunway" msprop:Generator_RowChangedName="RunwayRowChanged" msprop:Generator_TablePropName="Runway" msprop:Generator_RowDeletingName="RunwayRowDeleting" msprop:Generator_RowChangingName="RunwayRowChanging" msprop:Generator_RowEvHandlerName="RunwayRowChangeEventHandler" msprop:Generator_RowDeletedName="RunwayRowDeleted" msprop:Generator_RowClassName="RunwayRow" msprop:Generator_UserTableName="Runway" msprop:Generator_RowEvArgName="RunwayRowChangeEvent">
+        <xs:element name="Runway" msprop:Generator_TableClassName="RunwayDataTable" msprop:Generator_TableVarName="tableRunway" msprop:Generator_TablePropName="Runway" msprop:Generator_RowDeletingName="RunwayRowDeleting" msprop:Generator_RowChangingName="RunwayRowChanging" msprop:Generator_RowEvHandlerName="RunwayRowChangeEventHandler" msprop:Generator_RowDeletedName="RunwayRowDeleted" msprop:Generator_UserTableName="Runway" msprop:Generator_RowChangedName="RunwayRowChanged" msprop:Generator_RowEvArgName="RunwayRowChangeEvent" msprop:Generator_RowClassName="RunwayRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -218,7 +227,7 @@ SELECT Id, Fullname, Username, Password FROM Users WHERE (Id = @Id)</CommandText
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Users" msprop:Generator_TableClassName="UsersDataTable" msprop:Generator_TableVarName="tableUsers" msprop:Generator_RowChangedName="UsersRowChanged" msprop:Generator_TablePropName="Users" msprop:Generator_RowDeletingName="UsersRowDeleting" msprop:Generator_RowChangingName="UsersRowChanging" msprop:Generator_RowEvHandlerName="UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersRowDeleted" msprop:Generator_RowClassName="UsersRow" msprop:Generator_UserTableName="Users" msprop:Generator_RowEvArgName="UsersRowChangeEvent">
+        <xs:element name="Users" msprop:Generator_TableClassName="UsersDataTable" msprop:Generator_TableVarName="tableUsers" msprop:Generator_TablePropName="Users" msprop:Generator_RowDeletingName="UsersRowDeleting" msprop:Generator_RowChangingName="UsersRowChanging" msprop:Generator_RowEvHandlerName="UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersRowDeleted" msprop:Generator_UserTableName="Users" msprop:Generator_RowChangedName="UsersRowChanged" msprop:Generator_RowEvArgName="UsersRowChangeEvent" msprop:Generator_RowClassName="UsersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />

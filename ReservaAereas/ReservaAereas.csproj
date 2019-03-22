@@ -48,8 +48,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,6 +74,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>flujoaereoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmPlane.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPlane.Designer.cs">
+      <DependentUpon>frmPlane.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRunway.cs">
       <SubType>Form</SubType>
@@ -85,9 +100,14 @@
       <DependentUpon>MDIParent.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\DBTools.cs" />
+    <Compile Include="Models\Basic.cs" />
+    <Compile Include="Models\Plane.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmPlane.resx">
+      <DependentUpon>frmPlane.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRunway.resx">
       <DependentUpon>frmRunway.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +146,7 @@
     <None Include="flujoaereoDataSet.xss">
       <DependentUpon>flujoaereoDataSet.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -157,6 +178,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -26,4 +26,5 @@ CREATE TABLE Status (
                 Name NVARCHAR(50) NOT NULL,
                 Category_id INT NOT NULL,
                 CONSTRAINT Status_pk PRIMARY KEY (Id)
-);
+);
+

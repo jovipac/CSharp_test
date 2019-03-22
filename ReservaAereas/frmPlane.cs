@@ -44,13 +44,13 @@ namespace ReservaAereas
             try
             {
                 DataTable dt = new DataTable();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Plane", con);
+                SqlCommand cmd = new SqlCommand("SELECT Id, Name,Capacity,Status_id,Airline_id FROM Plane", con);
                 cmd.CommandType = CommandType.Text;
 
                 adapt = new SqlDataAdapter(cmd);
                 adapt.Fill(dt);
 
-                dataGridView1.DataSource = dt;
+                dataGridView.DataSource = dt;
 
                 Plane _entity = new Plane();
                 List<Plane> _planeList = new List<Plane>();
@@ -220,6 +220,21 @@ namespace ReservaAereas
             cmb_AirlineId.DataSource = dt;
             cmb_AirlineId.ValueMember = dt.Columns[0].ColumnName;
             cmb_AirlineId.DisplayMember = dt.Columns[1].ColumnName;
+        }
+
+        private void dataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var rowsCount = dataGridView.SelectedRows.Count;
+            if (rowsCount == 0 || rowsCount > 1) return;
+
+            var row = dataGridView.SelectedRows[0];
+            if (row == null) return;
+
+            ID = Convert.ToInt32(dataGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
+            txt_Name.Text = dataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txt_Capacity.Text = dataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+            cmb_StatusId.Text = dataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+            cmb_AirlineId.Text = dataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
         }
     }
 }

@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonInsert = new System.Windows.Forms.Button();
@@ -43,11 +41,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_Airline = new System.Windows.Forms.Label();
             this.cmb_AirlineId = new System.Windows.Forms.ComboBox();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -103,6 +99,7 @@
             // 
             // cmb_StatusId
             // 
+            this.cmb_StatusId.DisplayMember = "Id";
             this.cmb_StatusId.FormattingEnabled = true;
             this.cmb_StatusId.Location = new System.Drawing.Point(668, 117);
             this.cmb_StatusId.Name = "cmb_StatusId";
@@ -179,6 +176,7 @@
             // 
             // cmb_AirlineId
             // 
+            this.cmb_AirlineId.DisplayMember = "Id";
             this.cmb_AirlineId.FormattingEnabled = true;
             this.cmb_AirlineId.Location = new System.Drawing.Point(130, 117);
             this.cmb_AirlineId.Name = "cmb_AirlineId";
@@ -187,31 +185,16 @@
             this.cmb_AirlineId.ValueMember = "Id";
             this.cmb_AirlineId.DropDown += new System.EventHandler(this.cmb_AirlineId_DropDown);
             // 
-            // Description
+            // dataGridView
             // 
-            this.Description.DataPropertyName = "Description";
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            this.Description.Width = 350;
-            // 
-            // Status_id
-            // 
-            this.Status_id.DataPropertyName = "Status_id";
-            this.Status_id.HeaderText = "Status_id";
-            this.Status_id.Name = "Status_id";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Status_id,
-            this.Description});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 297);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(860, 395);
-            this.dataGridView1.TabIndex = 15;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView.Location = new System.Drawing.Point(0, 297);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(860, 395);
+            this.dataGridView.TabIndex = 15;
+            this.dataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_RowHeaderMouseClick);
             // 
             // frmPlane
             // 
@@ -219,14 +202,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(860, 692);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridView);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmPlane";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmPlane";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -244,9 +227,7 @@
         private System.Windows.Forms.TextBox txt_Capacity;
         private System.Windows.Forms.TextBox txt_Name;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status_id;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Label lbl_Airline;
         private System.Windows.Forms.ComboBox cmb_AirlineId;
     }

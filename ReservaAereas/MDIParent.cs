@@ -24,21 +24,8 @@ namespace ReservaAereas
         {
             frmAboutBox AboutForm = new frmAboutBox();
             AboutForm.MdiParent = this;
+            AboutForm.StartPosition = FormStartPosition.CenterParent;
             AboutForm.Show();
-        }
-
-        private void ShowRunwayForm(object sender, EventArgs e)
-        {
-            Form RunwayForm = new frmRunway();
-            RunwayForm.MdiParent = this;
-            RunwayForm.Show();
-        }
-
-        private void ShowAirlineForm(object sender, EventArgs e)
-        {
-            Form AirlineForm = new frmAirline();
-            AirlineForm.MdiParent = this;
-            AirlineForm.Show();
         }
 
         private void ShowLogin(object sender, EventArgs e)
@@ -113,5 +100,28 @@ namespace ReservaAereas
             }
         }
 
+        private void ShowRunwayForm(object sender, EventArgs e)
+        {
+            Form RunwayForm = new frmRunway();
+            RunwayForm.MdiParent = this;
+            RunwayForm.StartPosition = FormStartPosition.CenterParent;
+            RunwayForm.Show();
+        }
+
+        private void ShowAirlineForm(object sender, EventArgs e)
+        {
+            Form AirlineForm = new frmAirline();
+            AirlineForm.MdiParent = this;
+            AirlineForm.StartPosition = FormStartPosition.CenterParent;
+            AirlineForm.Show();
+        }
+
+        private void ShowPlaneForm(object sender, EventArgs e)
+        {
+            Form PlaneForm = new frmPlane();
+            PlaneForm.MdiParent = this;
+            PlaneForm.StartPosition = FormStartPosition.CenterParent;
+            PlaneForm.Show();
+        }
     }
 }

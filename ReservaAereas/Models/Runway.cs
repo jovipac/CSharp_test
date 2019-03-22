@@ -4,7 +4,7 @@ namespace ReservaAereas.Models
     using System.ComponentModel.DataAnnotations.Schema;
 
     [Table("Runway")]
-    public partial class Runway
+    public partial class Runway: Basic
     {
         public int Id { get; set; }
 

@@ -48,6 +48,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+      <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -75,6 +81,12 @@
     <Compile Include="frmAirline.Designer.cs">
       <DependentUpon>frmAirline.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPlane.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPlane.Designer.cs">
+      <DependentUpon>frmPlane.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRunway.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +99,7 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Plane.cs" />
     <Compile Include="Properties\ICopyPasteable.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -98,6 +111,7 @@
     </Compile>
     <Compile Include="Models\Airline.cs" />
     <Compile Include="Models\DBTools.cs" />
+    <Compile Include="Models\Basic.cs" />
     <Compile Include="Models\Runway.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Models\User.cs" />
@@ -105,6 +119,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAirline.resx">
       <DependentUpon>frmAirline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPlane.resx">
+      <DependentUpon>frmPlane.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRunway.resx">
       <DependentUpon>frmRunway.cs</DependentUpon>

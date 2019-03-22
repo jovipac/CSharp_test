@@ -6,7 +6,7 @@ namespace ReservaAereas.Models
     using System.ComponentModel.DataAnnotations.Schema;
 
     [Table("Airline")]
-    public partial class Airline
+    public partial class Airline: Basic
     {
         public int Id { get; set; }
 

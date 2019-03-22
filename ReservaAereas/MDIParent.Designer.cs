@@ -33,6 +33,7 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.catalogsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.pistasDeAterrizajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aerolineasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +61,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.aerolineasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.avionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -87,7 +88,8 @@
             // 
             this.catalogsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pistasDeAterrizajeToolStripMenuItem,
-            this.aerolineasToolStripMenuItem});
+            this.aerolineasToolStripMenuItem,
+            this.avionesToolStripMenuItem});
             this.catalogsMenu.Name = "catalogsMenu";
             this.catalogsMenu.Size = new System.Drawing.Size(104, 29);
             this.catalogsMenu.Text = "Catalogos";
@@ -95,9 +97,16 @@
             // pistasDeAterrizajeToolStripMenuItem
             // 
             this.pistasDeAterrizajeToolStripMenuItem.Name = "pistasDeAterrizajeToolStripMenuItem";
-            this.pistasDeAterrizajeToolStripMenuItem.Size = new System.Drawing.Size(244, 30);
+            this.pistasDeAterrizajeToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.pistasDeAterrizajeToolStripMenuItem.Text = "Pistas de Aterrizaje";
             this.pistasDeAterrizajeToolStripMenuItem.Click += new System.EventHandler(this.ShowRunwayForm);
+            // 
+            // aerolineasToolStripMenuItem
+            // 
+            this.aerolineasToolStripMenuItem.Name = "aerolineasToolStripMenuItem";
+            this.aerolineasToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.aerolineasToolStripMenuItem.Text = "Aerolineas";
+            this.aerolineasToolStripMenuItem.Click += new System.EventHandler(this.ShowAirlineForm);
             // 
             // editMenu
             // 
@@ -313,12 +322,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(66, 25);
             this.toolStripStatusLabel.Text = "Estado";
             // 
-            // aerolineasToolStripMenuItem
+            // avionesToolStripMenuItem
             // 
-            this.aerolineasToolStripMenuItem.Name = "aerolineasToolStripMenuItem";
-            this.aerolineasToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
-            this.aerolineasToolStripMenuItem.Text = "Aerolineas";
-            this.aerolineasToolStripMenuItem.Click += new System.EventHandler(this.ShowAirlineForm);
+            this.avionesToolStripMenuItem.Name = "avionesToolStripMenuItem";
+            this.avionesToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.avionesToolStripMenuItem.Text = "Aviones";
+            this.avionesToolStripMenuItem.Click += new System.EventHandler(this.ShowPlaneForm);
             // 
             // frmMain
             // 
@@ -376,6 +385,7 @@
         private System.Windows.Forms.ToolStripMenuItem catalogsMenu;
         private System.Windows.Forms.ToolStripMenuItem pistasDeAterrizajeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aerolineasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem avionesToolStripMenuItem;
     }
 }
 

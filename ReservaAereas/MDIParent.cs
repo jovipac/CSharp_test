@@ -24,7 +24,7 @@ namespace ReservaAereas
         {
             frmAboutBox AboutForm = new frmAboutBox();
             AboutForm.MdiParent = this;
-            AboutForm.StartPosition = FormStartPosition.CenterParent;
+            AboutForm.StartPosition = FormStartPosition.CenterScreen;
             AboutForm.Show();
         }
 
@@ -104,7 +104,7 @@ namespace ReservaAereas
         {
             Form RunwayForm = new frmRunway();
             RunwayForm.MdiParent = this;
-            RunwayForm.StartPosition = FormStartPosition.CenterParent;
+            RunwayForm.StartPosition = FormStartPosition.CenterScreen;
             RunwayForm.Show();
         }
 
@@ -112,7 +112,7 @@ namespace ReservaAereas
         {
             Form AirlineForm = new frmAirline();
             AirlineForm.MdiParent = this;
-            AirlineForm.StartPosition = FormStartPosition.CenterParent;
+            AirlineForm.StartPosition = FormStartPosition.CenterScreen;
             AirlineForm.Show();
         }
 
@@ -120,7 +120,7 @@ namespace ReservaAereas
         {
             Form PlaneForm = new frmPlane();
             PlaneForm.MdiParent = this;
-            PlaneForm.StartPosition = FormStartPosition.CenterParent;
+            PlaneForm.StartPosition = FormStartPosition.CenterScreen;
             PlaneForm.Show();
         }
     }

@@ -32,14 +32,17 @@
             this.runwayBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.flujoaereoDataSet = new ReservaAereas.flujoaereoDataSet();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.statusBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.statusTableAdapter = new ReservaAereas.flujoaereoDataSetTableAdapters.StatusTableAdapter();
-            this.runwayTableAdapter = new ReservaAereas.flujoaereoDataSetTableAdapters.RunwayTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.statusTableAdapter = new ReservaAereas.flujoaereoDataSetTableAdapters.StatusTableAdapter();
+            this.runwayTableAdapter = new ReservaAereas.flujoaereoDataSetTableAdapters.RunwayTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonInsert = new System.Windows.Forms.Button();
             this.txt_Id = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmb_StatusId = new System.Windows.Forms.ComboBox();
@@ -47,9 +50,6 @@
             this.lbl_Name = new System.Windows.Forms.Label();
             this.txt_Description = new System.Windows.Forms.TextBox();
             this.txt_Name = new System.Windows.Forms.TextBox();
-            this.buttonUpdate = new System.Windows.Forms.Button();
-            this.buttonInsert = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.runwayBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flujoaereoDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -84,19 +84,6 @@
             this.dataGridView.Size = new System.Drawing.Size(668, 395);
             this.dataGridView.TabIndex = 8;
             // 
-            // statusBindingSource
-            // 
-            this.statusBindingSource.DataMember = "Status";
-            this.statusBindingSource.DataSource = this.flujoaereoDataSet;
-            // 
-            // statusTableAdapter
-            // 
-            this.statusTableAdapter.ClearBeforeFill = true;
-            // 
-            // runwayTableAdapter
-            // 
-            this.runwayTableAdapter.ClearBeforeFill = true;
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -124,6 +111,19 @@
             this.Description.Name = "Description";
             this.Description.Width = 350;
             // 
+            // statusBindingSource
+            // 
+            this.statusBindingSource.DataMember = "Status";
+            this.statusBindingSource.DataSource = this.flujoaereoDataSet;
+            // 
+            // statusTableAdapter
+            // 
+            this.statusTableAdapter.ClearBeforeFill = true;
+            // 
+            // runwayTableAdapter
+            // 
+            this.runwayTableAdapter.ClearBeforeFill = true;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label2);
@@ -141,6 +141,36 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(668, 219);
             this.panel1.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(481, 24);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(23, 20);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Id";
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Location = new System.Drawing.Point(430, 166);
+            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(112, 35);
+            this.buttonUpdate.TabIndex = 22;
+            this.buttonUpdate.Text = "Actualizar";
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            // 
+            // buttonInsert
+            // 
+            this.buttonInsert.Location = new System.Drawing.Point(294, 166);
+            this.buttonInsert.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonInsert.Name = "buttonInsert";
+            this.buttonInsert.Size = new System.Drawing.Size(112, 35);
+            this.buttonInsert.TabIndex = 21;
+            this.buttonInsert.Text = "Agregar";
+            this.buttonInsert.UseVisualStyleBackColor = true;
             // 
             // txt_Id
             // 
@@ -213,36 +243,6 @@
             this.txt_Name.Name = "txt_Name";
             this.txt_Name.Size = new System.Drawing.Size(218, 26);
             this.txt_Name.TabIndex = 14;
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Location = new System.Drawing.Point(430, 166);
-            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(112, 35);
-            this.buttonUpdate.TabIndex = 22;
-            this.buttonUpdate.Text = "Actualizar";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            // 
-            // buttonInsert
-            // 
-            this.buttonInsert.Location = new System.Drawing.Point(294, 166);
-            this.buttonInsert.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonInsert.Name = "buttonInsert";
-            this.buttonInsert.Size = new System.Drawing.Size(112, 35);
-            this.buttonInsert.TabIndex = 21;
-            this.buttonInsert.Text = "Agregar";
-            this.buttonInsert.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(481, 24);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 20);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Id";
             // 
             // frmRunway
             // 

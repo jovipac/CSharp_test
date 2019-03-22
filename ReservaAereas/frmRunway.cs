@@ -58,7 +58,7 @@ namespace ReservaAereas
                 con.Open();
                 cmd.Parameters.AddWithValue("@name", txt_Name.Text);
                 cmd.Parameters.AddWithValue("@description", txt_Description.Text);
-                cmd.Parameters.AddWithValue("@status_id", cmb_StatusId.SelectedIndex);
+                cmd.Parameters.AddWithValue("@status_id", cmb_StatusId.SelectedValue);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 Int32.TryParse(txt_Id.Text, out ID);

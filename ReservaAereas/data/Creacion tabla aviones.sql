@@ -9,7 +9,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE dbo.Plane (
-		Id INT NOT NULL,
+		Id INT IDENTITY NOT NULL,
         Name VARCHAR(50) NOT NULL,
         Capacity VARCHAR(50) NOT NULL,
         Airline_id INT,

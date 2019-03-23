@@ -2,13 +2,11 @@ USE [flujoaereo]
 GO
 
 INSERT INTO [dbo].[Users]
-           ([Id]
-           ,[Fullname]
+           ([Fullname]
            ,[Username]
            ,[Password])
      VALUES
-           (1
-           ,'Super Admin'
+           ('Super Admin'
            ,'admin'
            ,'bW2Cn69UIiZH++qhylCqQw==')
       -- superadmin

@@ -123,5 +123,14 @@ namespace ReservaAereas
             PlaneForm.StartPosition = FormStartPosition.CenterScreen;
             PlaneForm.Show();
         }
+
+        private void ShowFlightScheduleForm(object sender, EventArgs e)
+        {
+            Form FlightScheduleForm = new frmFlightSchedule();
+            FlightScheduleForm.MdiParent = this;
+            FlightScheduleForm.MaximizeBox = false;
+            FlightScheduleForm.StartPosition = FormStartPosition.CenterScreen;
+            FlightScheduleForm.Show();
+        }
     }
 }

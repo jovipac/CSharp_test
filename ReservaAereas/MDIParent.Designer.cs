@@ -34,6 +34,7 @@
             this.catalogsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.pistasDeAterrizajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aerolineasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.avionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,9 +62,14 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.avionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -107,6 +113,13 @@
             this.aerolineasToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.aerolineasToolStripMenuItem.Text = "Aerolineas";
             this.aerolineasToolStripMenuItem.Click += new System.EventHandler(this.ShowAirlineForm);
+            // 
+            // avionesToolStripMenuItem
+            // 
+            this.avionesToolStripMenuItem.Name = "avionesToolStripMenuItem";
+            this.avionesToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.avionesToolStripMenuItem.Text = "Aviones";
+            this.avionesToolStripMenuItem.Click += new System.EventHandler(this.ShowPlaneForm);
             // 
             // editMenu
             // 
@@ -202,7 +215,7 @@
             this.statusBarToolStripMenuItem.CheckOnClick = true;
             this.statusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
-            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
+            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.statusBarToolStripMenuItem.Text = "&Barra de estado";
             this.statusBarToolStripMenuItem.Click += new System.EventHandler(this.StatusBarToolStripMenuItem_Click);
             // 
@@ -217,7 +230,7 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(171, 30);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.optionsToolStripMenuItem.Text = "&Opciones";
             // 
             // windowsMenu
@@ -236,41 +249,41 @@
             // newWindowToolStripMenuItem
             // 
             this.newWindowToolStripMenuItem.Name = "newWindowToolStripMenuItem";
-            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(247, 30);
+            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.newWindowToolStripMenuItem.Text = "&Nueva ventana";
             // 
             // cascadeToolStripMenuItem
             // 
             this.cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
-            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(247, 30);
+            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.cascadeToolStripMenuItem.Text = "&Cascada";
             this.cascadeToolStripMenuItem.Click += new System.EventHandler(this.CascadeToolStripMenuItem_Click);
             // 
             // tileVerticalToolStripMenuItem
             // 
             this.tileVerticalToolStripMenuItem.Name = "tileVerticalToolStripMenuItem";
-            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(247, 30);
+            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.tileVerticalToolStripMenuItem.Text = "Mosaico &vertical";
             this.tileVerticalToolStripMenuItem.Click += new System.EventHandler(this.TileVerticalToolStripMenuItem_Click);
             // 
             // tileHorizontalToolStripMenuItem
             // 
             this.tileHorizontalToolStripMenuItem.Name = "tileHorizontalToolStripMenuItem";
-            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(247, 30);
+            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.tileHorizontalToolStripMenuItem.Text = "Mosaico &horizontal";
             this.tileHorizontalToolStripMenuItem.Click += new System.EventHandler(this.TileHorizontalToolStripMenuItem_Click);
             // 
             // closeAllToolStripMenuItem
             // 
             this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(247, 30);
+            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.closeAllToolStripMenuItem.Text = "C&errar todo";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.CloseAllToolStripMenuItem_Click);
             // 
             // arrangeIconsToolStripMenuItem
             // 
             this.arrangeIconsToolStripMenuItem.Name = "arrangeIconsToolStripMenuItem";
-            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(247, 30);
+            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.arrangeIconsToolStripMenuItem.Text = "&Organizar iconos";
             this.arrangeIconsToolStripMenuItem.Click += new System.EventHandler(this.ArrangeIconsToolStripMenuItem_Click);
             // 
@@ -322,18 +335,59 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(66, 25);
             this.toolStripStatusLabel.Text = "Estado";
             // 
-            // avionesToolStripMenuItem
+            // toolStrip
             // 
-            this.avionesToolStripMenuItem.Name = "avionesToolStripMenuItem";
-            this.avionesToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
-            this.avionesToolStripMenuItem.Text = "Aviones";
-            this.avionesToolStripMenuItem.Click += new System.EventHandler(this.ShowPlaneForm);
+            this.toolStrip.Dock = System.Windows.Forms.DockStyle.Left;
+            this.toolStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripButton,
+            this.openToolStripButton,
+            this.toolStripSeparator1,
+            this.helpToolStripButton});
+            this.toolStrip.Location = new System.Drawing.Point(0, 35);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.toolStrip.Size = new System.Drawing.Size(112, 632);
+            this.toolStrip.TabIndex = 4;
+            this.toolStrip.Text = "ToolStrip";
+            // 
+            // newToolStripButton
+            // 
+            this.newToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripButton.Image")));
+            this.newToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
+            this.newToolStripButton.Name = "newToolStripButton";
+            this.newToolStripButton.Size = new System.Drawing.Size(107, 29);
+            this.newToolStripButton.Text = "Planificar";
+            this.newToolStripButton.Click += new System.EventHandler(this.ShowFlightScheduleForm);
+            // 
+            // openToolStripButton
+            // 
+            this.openToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripButton.Image")));
+            this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
+            this.openToolStripButton.Name = "openToolStripButton";
+            this.openToolStripButton.Size = new System.Drawing.Size(107, 29);
+            this.openToolStripButton.Text = "Abrir";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(43, 6);
+            // 
+            // helpToolStripButton
+            // 
+            this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.helpToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripButton.Image")));
+            this.helpToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
+            this.helpToolStripButton.Name = "helpToolStripButton";
+            this.helpToolStripButton.Size = new System.Drawing.Size(43, 28);
+            this.helpToolStripButton.Text = "Ayuda";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 697);
+            this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
@@ -347,6 +401,8 @@
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,6 +442,11 @@
         private System.Windows.Forms.ToolStripMenuItem pistasDeAterrizajeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aerolineasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem avionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripButton newToolStripButton;
+        private System.Windows.Forms.ToolStripButton openToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton helpToolStripButton;
     }
 }
 

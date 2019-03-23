@@ -159,8 +159,8 @@ namespace ReservaAereas
                     DisplayData();
                     ClearData();
 
-                }
-                catch (Exception er)
+                 }catch (Exception er)
+
                 {
                     MessageBox.Show("Error al intentar actualizar \n" + er.ToString() );
                     con.Close();

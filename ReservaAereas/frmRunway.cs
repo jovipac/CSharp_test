@@ -23,15 +23,13 @@ namespace ReservaAereas
         public frmRunway()
         {
             InitializeComponent();
-            DBTools cmbTools = new DBTools();
-            int categoryCode = Properties.Settings.Default.RunwayStatusCode;
-            //cmbTools.FillDropDownList( $"SELECT * FROM Status WHERE Category_id = {categoryCode}",cmb_StatusId );
         }
 
         private void ClearData()
         {
             txt_Name.Text = "";
             txt_Description.Text = "";
+            cmb_StatusId.Text = "";
             txt_Id.Text = "0";
         }
 
@@ -122,20 +120,41 @@ namespace ReservaAereas
 
         private void frmRunway_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'flujoaereoDataSet.Runway' Puede moverla o quitarla según sea necesario.
-            this.runwayTableAdapter.Fill(this.flujoaereoDataSet.Runway);
-            // TODO: esta línea de código carga datos en la tabla 'flujoaereoDataSet.Status' Puede moverla o quitarla según sea necesario.
+
             try
             {
-                int categoryCode = ((int)(System.Convert.ChangeType(Properties.Settings.Default.RunwayStatusCode, typeof(int))));
-                this.statusTableAdapter.Fill(this.flujoaereoDataSet.Status);
-                this.statusTableAdapter.FillBy(this.flujoaereoDataSet.Status, categoryCode );
-                //ClearData();
+                DisplayData();
             }
             catch (System.Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+        }
+
+        private void cmb_StatusId_DropDown(object sender, EventArgs e)
+        {
+            DBTools cmbTools = new DBTools();
+            int categoryCode = ((int)(System.Convert.ChangeType(Properties.Settings.Default.RunwayStatusCode, typeof(int))));
+            cmbTools.FillDropDownList( $"SELECT * FROM Status WHERE Category_id = {categoryCode}", cmb_StatusId );
+        }
+
+        private void buttonNew_Click(object sender, EventArgs e)
+        {
+            ClearData();
+        }
+
+        private void dataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var rowsCount = dataGridView.SelectedRows.Count;
+            if (rowsCount == 0 || rowsCount > 1) return;
+
+            var row = dataGridView.SelectedRows[0];
+            if (row == null) return;
+
+            ID = Convert.ToInt32(dataGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
+            txt_Name.Text = dataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            cmb_StatusId.Text = dataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txt_Description.Text = dataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
         }
     }
 }

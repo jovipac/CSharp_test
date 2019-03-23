@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
 namespace ReservaAereas.Models
 {
@@ -9,30 +9,30 @@ namespace ReservaAereas.Models
     {
         SqlConnection dbConnection = new SqlConnection(Properties.Settings.Default.lConnection);
 
-        public void FillDropDownList(string Query, ComboBox DropDownName)
+        public void FillDropDownList(string Query, System.Windows.Forms.ComboBox DropDownName)
         {
-            SqlDataReader dr;
-            try
+            DataTable dt = new DataTable();
+
+            using (var cn = new SqlConnection(Properties.Settings.Default.lConnection))
             {
-                dbConnection.Open();
+                using (var da = new SqlDataAdapter(Query, cn))
+                {
+                    cn.Open();
 
-                //Check whether the Drop Down has existing items. If YES, empty it.
-                if (DropDownName.Items.Count > 0)
-                    DropDownName.Items.Clear();
-
-                SqlCommand cmd = new SqlCommand(Query, dbConnection);
-                dr = cmd.ExecuteReader();
-
-                while (dr.Read())
-                    DropDownName.Items.Add(dr[0].ToString());
-
-                dr.Close();
+                    try
+                    {
+                        da.Fill(dt);
+                    }
+                    catch (SqlException er)
+                    {
+                        System.Windows.Forms.MessageBox.Show("There was an error accessing your data. DETAIL: " + er.ToString());
+                    }
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
-            dbConnection.Close();
+
+            DropDownName.DataSource = dt;
+            DropDownName.ValueMember = dt.Columns[0].ColumnName;
+            DropDownName.DisplayMember = dt.Columns[1].ColumnName;
         }
 
         public Object ReturnScalar(string Query)
@@ -48,7 +48,7 @@ namespace ReservaAereas.Models
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
             }
             return result;
         }

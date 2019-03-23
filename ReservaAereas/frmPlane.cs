@@ -150,7 +150,7 @@ namespace ReservaAereas
             Int32.TryParse(txt_Id.Text, out ID);
             if (ID != 0)
             {
-                cmd = new SqlCommand("DELETE Airline WHERE Id=@id", con);
+                cmd = new SqlCommand("DELETE Plane WHERE Id=@id", con);
                 con.Open();
                 cmd.Parameters.AddWithValue("@id", ID);
                 cmd.ExecuteNonQuery();
@@ -163,6 +163,11 @@ namespace ReservaAereas
             {
                 MessageBox.Show("Por favor, seleccione un registro para eliminar");
             }
+        }
+
+        private void buttonNew_Click(object sender, EventArgs e)
+        {
+            ClearData();
         }
 
         private void cmb_StatusId_DropDown(object sender, EventArgs e)

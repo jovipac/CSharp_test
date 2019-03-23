@@ -42,6 +42,8 @@
             this.lbl_Airline = new System.Windows.Forms.Label();
             this.cmb_AirlineId = new System.Windows.Forms.ComboBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonNew = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +60,7 @@
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(430, 166);
+            this.buttonUpdate.Location = new System.Drawing.Point(601, 169);
             this.buttonUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(112, 35);
@@ -69,7 +71,7 @@
             // 
             // buttonInsert
             // 
-            this.buttonInsert.Location = new System.Drawing.Point(294, 166);
+            this.buttonInsert.Location = new System.Drawing.Point(465, 169);
             this.buttonInsert.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonInsert.Name = "buttonInsert";
             this.buttonInsert.Size = new System.Drawing.Size(112, 35);
@@ -146,6 +148,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonDelete);
+            this.panel1.Controls.Add(this.buttonNew);
             this.panel1.Controls.Add(this.lbl_Airline);
             this.panel1.Controls.Add(this.cmb_AirlineId);
             this.panel1.Controls.Add(this.label2);
@@ -196,6 +200,28 @@
             this.dataGridView.TabIndex = 15;
             this.dataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_RowHeaderMouseClick);
             // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Location = new System.Drawing.Point(735, 169);
+            this.buttonDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(112, 35);
+            this.buttonDelete.TabIndex = 45;
+            this.buttonDelete.Text = "Eliminar";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // buttonNew
+            // 
+            this.buttonNew.Location = new System.Drawing.Point(337, 169);
+            this.buttonNew.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonNew.Name = "buttonNew";
+            this.buttonNew.Size = new System.Drawing.Size(112, 35);
+            this.buttonNew.TabIndex = 44;
+            this.buttonNew.Text = "Nuevo";
+            this.buttonNew.UseVisualStyleBackColor = true;
+            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
+            // 
             // frmPlane
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -230,5 +256,7 @@
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Label lbl_Airline;
         private System.Windows.Forms.ComboBox cmb_AirlineId;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonNew;
     }
 }

@@ -34,6 +34,7 @@ namespace ReservaAereas
             txt_Id.Text = "0";
             cmb_AirlineId.Text = "";
             cmb_StatusId.Text = "";
+            cmb_PlaneTypeId.Text = "";
         }
 
         private void DisplayData()
@@ -44,7 +45,10 @@ namespace ReservaAereas
             try
             {
                 DataTable dt = new DataTable();
-                SqlCommand cmd = new SqlCommand("SELECT Id, Name,Capacity,Status_id,Airline_id FROM Plane", con);
+                string statement = $"SELECT p.Id, p.Name,a.Name as Airline,Type_id,p.Capacity, s.Name as Status  FROM Plane p " +
+                    $"INNER JOIN Airline a ON(P.Airline_id = a.Id)" +
+                    $"INNER JOIN Status s ON(P.Status_id = s.Id)";
+                SqlCommand cmd = new SqlCommand(statement, con);
                 cmd.CommandType = CommandType.Text;
 
                 adapt = new SqlDataAdapter(cmd);
@@ -57,12 +61,14 @@ namespace ReservaAereas
 
                 if (dt.Rows.Count > 0)
                 {
+                    PlaneType planeTypes = new PlaneType();
+
                     foreach (DataRow lRow in dt.Rows)
                     {
                         _entity.Id = Convert.IsDBNull(lRow["Id"]) ? 0 : Convert.ToInt32(lRow["Id"]);
                         _entity.Capacity = Convert.IsDBNull(lRow["Capacity"]) ? string.Empty : lRow["Capacity"].ToString();
-                        _entity.Status_id = Convert.IsDBNull(lRow["Status_id"]) ? 0 : Convert.ToInt32(lRow["Status_id"]);
-
+                        _entity.Status_id = Convert.IsDBNull(lRow["Status_id"]) ? -1 : Convert.ToInt32(lRow["Status_id"]);
+                        _entity.Type_id = Convert.IsDBNull(lRow["Type_id"]) ? -1 : Convert.ToInt32(lRow["Type_id"]);
                         _planeList.Add(_entity);
                     }
                 }
@@ -97,18 +103,27 @@ namespace ReservaAereas
         {
             if (txt_Name.Text != "" || txt_Capacity.Text != "")
             {
-                cmd = new SqlCommand("INSERT INTO Plane(Name,Capacity,Airline_id,Status_id) VALUES(@name,@capacity,@airline_id, @status_id)", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@name", txt_Name.Text);
-                cmd.Parameters.AddWithValue("@capacity", txt_Capacity.Text);
-                cmd.Parameters.AddWithValue("@airline_id", cmb_AirlineId.SelectedValue);
-                cmd.Parameters.AddWithValue("@status_id", cmb_StatusId.SelectedValue);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                Int32.TryParse(txt_Id.Text, out ID);
-                MessageBox.Show("Registro insertado con éxito");
-                DisplayData();
-                ClearData();
+                try
+                {
+                    cmd = new SqlCommand("INSERT INTO Plane(Name,Capacity,Type_id,Airline_id,Status_id) VALUES(@name,@capacity,@type_id,@airline_id, @status_id)", con);
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@name", txt_Name.Text);
+                    cmd.Parameters.AddWithValue("@capacity", txt_Capacity.Text);
+                    cmd.Parameters.AddWithValue("@type_id", cmb_PlaneTypeId.SelectedValue);
+                    cmd.Parameters.AddWithValue("@airline_id", cmb_AirlineId.SelectedValue);
+                    cmd.Parameters.AddWithValue("@status_id", cmb_StatusId.SelectedValue);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    Int32.TryParse(txt_Id.Text, out ID);
+                    MessageBox.Show("Registro insertado con éxito");
+                    DisplayData();
+                    ClearData();
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Error al intentar insertar \n" + er.ToString());
+                    con.Close();
+                }
             }
             else
             {
@@ -128,16 +143,28 @@ namespace ReservaAereas
 
             if (txt_Name.Text != "")
             {
-                cmd = new SqlCommand("UPDATE Plane SET Name=@name,Status_id=@status_id WHERE Id=@id", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@id", ID);
-                cmd.Parameters.AddWithValue("@name", txt_Name.Text);
-                cmd.Parameters.AddWithValue("@status_id", cmb_StatusId.SelectedIndex);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Registro actualizado exitosamente");
-                con.Close();
-                DisplayData();
-                ClearData();
+                try
+                {
+                    cmd = new SqlCommand("UPDATE Plane SET Name=@name,Capacity=@capacity,Type_id=@type_id,Airline_id=@airline_id,Status_id=@status_id WHERE Id=@id", con);
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@id", ID);
+                    cmd.Parameters.AddWithValue("@name", txt_Name.Text);
+                    cmd.Parameters.AddWithValue("@capacity", txt_Capacity.Text);
+                    cmd.Parameters.AddWithValue("@type_id", cmb_PlaneTypeId.SelectedValue);
+                    cmd.Parameters.AddWithValue("@airline_id", cmb_AirlineId.SelectedValue);
+                    cmd.Parameters.AddWithValue("@status_id", cmb_StatusId.SelectedValue);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Registro actualizado exitosamente");
+                    con.Close();
+                    DisplayData();
+                    ClearData();
+
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Error al intentar actualizar \n" + er.ToString() );
+                    con.Close();
+                }
             }
             else
             {
@@ -189,7 +216,7 @@ namespace ReservaAereas
                     catch (SqlException er)
                     {
                         // Do some logging or something. 
-                        MessageBox.Show("There was an error accessing your data. DETAIL: " + er.ToString());
+                        MessageBox.Show("Se ha producido un error al acceder a sus datos. DETALLE: " + er.ToString());
                     }
                 }
             }
@@ -217,7 +244,7 @@ namespace ReservaAereas
                     catch (SqlException er)
                     {
                         // Do some logging or something. 
-                        MessageBox.Show("There was an error accessing your data. DETAIL: " + er.ToString());
+                        MessageBox.Show("Se ha producido un error al acceder a sus datos. DETALLE: " + er.ToString());
                     }
                 }
             }
@@ -225,6 +252,14 @@ namespace ReservaAereas
             cmb_AirlineId.DataSource = dt;
             cmb_AirlineId.ValueMember = dt.Columns[0].ColumnName;
             cmb_AirlineId.DisplayMember = dt.Columns[1].ColumnName;
+        }
+
+        private void cmb_PlaneTypeId_DropDown(object sender, EventArgs e)
+        {
+            PlaneType planeTypes = new PlaneType();
+            cmb_PlaneTypeId.DataSource = planeTypes.Examples();
+            cmb_PlaneTypeId.ValueMember = "Id";
+            cmb_PlaneTypeId.DisplayMember = "Name";
         }
 
         private void dataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -236,10 +271,12 @@ namespace ReservaAereas
             if (row == null) return;
 
             ID = Convert.ToInt32(dataGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
+            txt_Id.Text = dataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
             txt_Name.Text = dataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txt_Capacity.Text = dataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
-            cmb_StatusId.Text = dataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
-            cmb_AirlineId.Text = dataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+            cmb_AirlineId.Text = dataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+            cmb_PlaneTypeId.Text = dataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txt_Capacity.Text = dataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+            cmb_StatusId.Text = dataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
         }
     }
 }

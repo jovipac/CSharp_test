@@ -21,7 +21,12 @@ namespace ReservaAereas.Models
         public string Capacity { get; set; }
 
         public int? Airline_id { get; set; }
+        public string Airline { get; set; }
 
         public int? Status_id { get; set; }
+        public string Status { get; set; }
+
+        public int? Type_id { get; set; }
+        public string Type { get; set; }
     }
 }

@@ -100,6 +100,7 @@
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Plane.cs" />
+    <Compile Include="Models\PlaneType.cs" />
     <Compile Include="Properties\ICopyPasteable.cs">
       <SubType>Component</SubType>
     </Compile>

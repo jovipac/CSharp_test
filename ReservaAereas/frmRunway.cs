@@ -52,17 +52,25 @@ namespace ReservaAereas
         {
             if (txt_Name.Text != "" && txt_Description.Text != "")
             {
-                cmd = new SqlCommand("INSERT INTO Runway(Name,Description,Status_id) VALUES(@name,@description, @status_id)", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@name", txt_Name.Text);
-                cmd.Parameters.AddWithValue("@description", txt_Description.Text);
-                cmd.Parameters.AddWithValue("@status_id", cmb_StatusId.SelectedValue);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                Int32.TryParse(txt_Id.Text, out ID);
-                MessageBox.Show("Registro insertado con éxito");
-                DisplayData();
-                ClearData();
+                try
+                { 
+                    cmd = new SqlCommand("INSERT INTO Runway(Name,Description,Status_id) VALUES(@name,@description, @status_id)", con);
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@name", txt_Name.Text);
+                    cmd.Parameters.AddWithValue("@description", txt_Description.Text);
+                    cmd.Parameters.AddWithValue("@status_id", cmb_StatusId.SelectedValue);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    Int32.TryParse(txt_Id.Text, out ID);
+                    MessageBox.Show("Registro insertado con éxito");
+                    DisplayData();
+                    ClearData();
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Error al intentar insertar \n" + er.ToString());
+                    con.Close();
+                }
             }
             else
             {
@@ -79,18 +87,27 @@ namespace ReservaAereas
             Int32.TryParse(txt_Id.Text, out ID);
 
             if (txt_Name.Text != "" && txt_Description.Text != "")
-            { 
-                cmd = new SqlCommand("UPDATE Runway SET Name=@name,Description=@description,Status_id=@status_id WHERE Id=@id", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@id", ID );
-                cmd.Parameters.AddWithValue("@name", txt_Name.Text);
-                cmd.Parameters.AddWithValue("@description", txt_Description.Text);
-                cmd.Parameters.AddWithValue("@status_id", cmb_StatusId.SelectedIndex);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Registro actualizado exitosamente");
-                con.Close();
-                DisplayData();
-                ClearData();
+            {
+                try
+                {
+                    cmd = new SqlCommand("UPDATE Runway SET Name=@name,Description=@description,Status_id=@status_id WHERE Id=@id", con);
+                    con.Open();
+                    cmd.Parameters.AddWithValue("@id", ID);
+                    cmd.Parameters.AddWithValue("@name", txt_Name.Text);
+                    cmd.Parameters.AddWithValue("@description", txt_Description.Text);
+                    cmd.Parameters.AddWithValue("@status_id", cmb_StatusId.SelectedIndex);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Registro actualizado exitosamente");
+                    con.Close();
+                    DisplayData();
+                    ClearData();
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show("Error al intentar actualizar \n" + er.ToString());
+                    con.Close();
+                }
+
             }
             else
             {
@@ -152,6 +169,7 @@ namespace ReservaAereas
             if (row == null) return;
 
             ID = Convert.ToInt32(dataGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
+            txt_Id.Text = dataGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
             txt_Name.Text = dataGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
             cmb_StatusId.Text = dataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
             txt_Description.Text = dataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();

@@ -32,7 +32,7 @@
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonInsert = new System.Windows.Forms.Button();
             this.txt_Id = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_Status = new System.Windows.Forms.Label();
             this.cmb_StatusId = new System.Windows.Forms.ComboBox();
             this.lbl_Description = new System.Windows.Forms.Label();
             this.lbl_Name = new System.Windows.Forms.Label();
@@ -44,6 +44,8 @@
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonNew = new System.Windows.Forms.Button();
+            this.cmb_PlaneTypeId = new System.Windows.Forms.ComboBox();
+            this.lbl_Type = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -89,15 +91,15 @@
             this.txt_Id.Size = new System.Drawing.Size(86, 26);
             this.txt_Id.TabIndex = 20;
             // 
-            // label1
+            // lbl_Status
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(560, 126);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 20);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Estado";
+            this.lbl_Status.AutoSize = true;
+            this.lbl_Status.Location = new System.Drawing.Point(560, 126);
+            this.lbl_Status.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_Status.Name = "lbl_Status";
+            this.lbl_Status.Size = new System.Drawing.Size(60, 20);
+            this.lbl_Status.TabIndex = 19;
+            this.lbl_Status.Text = "Estado";
             // 
             // cmb_StatusId
             // 
@@ -148,6 +150,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lbl_Type);
+            this.panel1.Controls.Add(this.cmb_PlaneTypeId);
             this.panel1.Controls.Add(this.buttonDelete);
             this.panel1.Controls.Add(this.buttonNew);
             this.panel1.Controls.Add(this.lbl_Airline);
@@ -156,7 +160,7 @@
             this.panel1.Controls.Add(this.buttonUpdate);
             this.panel1.Controls.Add(this.buttonInsert);
             this.panel1.Controls.Add(this.txt_Id);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lbl_Status);
             this.panel1.Controls.Add(this.cmb_StatusId);
             this.panel1.Controls.Add(this.lbl_Description);
             this.panel1.Controls.Add(this.lbl_Name);
@@ -222,6 +226,25 @@
             this.buttonNew.UseVisualStyleBackColor = true;
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
+            // cmb_PlaneTypeId
+            // 
+            this.cmb_PlaneTypeId.FormattingEnabled = true;
+            this.cmb_PlaneTypeId.Location = new System.Drawing.Point(711, 68);
+            this.cmb_PlaneTypeId.Name = "cmb_PlaneTypeId";
+            this.cmb_PlaneTypeId.Size = new System.Drawing.Size(121, 28);
+            this.cmb_PlaneTypeId.TabIndex = 46;
+            this.cmb_PlaneTypeId.DropDown += new System.EventHandler(this.cmb_PlaneTypeId_DropDown);
+            // 
+            // lbl_Type
+            // 
+            this.lbl_Type.AutoSize = true;
+            this.lbl_Type.Location = new System.Drawing.Point(635, 74);
+            this.lbl_Type.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_Type.Name = "lbl_Type";
+            this.lbl_Type.Size = new System.Drawing.Size(39, 20);
+            this.lbl_Type.TabIndex = 47;
+            this.lbl_Type.Text = "Tipo";
+            // 
             // frmPlane
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -246,7 +269,7 @@
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonInsert;
         private System.Windows.Forms.TextBox txt_Id;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_Status;
         private System.Windows.Forms.ComboBox cmb_StatusId;
         private System.Windows.Forms.Label lbl_Description;
         private System.Windows.Forms.Label lbl_Name;
@@ -258,5 +281,7 @@
         private System.Windows.Forms.ComboBox cmb_AirlineId;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonNew;
+        private System.Windows.Forms.ComboBox cmb_PlaneTypeId;
+        private System.Windows.Forms.Label lbl_Type;
     }
 }

@@ -35,6 +35,8 @@
             this.cmb_AirlineId = new System.Windows.Forms.ComboBox();
             this.date_calendar = new System.Windows.Forms.MonthCalendar();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lbl_Runway = new System.Windows.Forms.Label();
+            this.cmb_RunwayId = new System.Windows.Forms.ComboBox();
             this.lbl_Plane = new System.Windows.Forms.Label();
             this.cmb_PlaneId = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -113,9 +115,12 @@
             this.date_calendar.Location = new System.Drawing.Point(188, 41);
             this.date_calendar.Name = "date_calendar";
             this.date_calendar.TabIndex = 0;
+            this.date_calendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.date_calendar_DateSelected);
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lbl_Runway);
+            this.tabPage2.Controls.Add(this.cmb_RunwayId);
             this.tabPage2.Controls.Add(this.lbl_Plane);
             this.tabPage2.Controls.Add(this.cmb_PlaneId);
             this.tabPage2.Controls.Add(this.label1);
@@ -134,6 +139,25 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // lbl_Runway
+            // 
+            this.lbl_Runway.AutoSize = true;
+            this.lbl_Runway.Location = new System.Drawing.Point(75, 338);
+            this.lbl_Runway.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_Runway.Name = "lbl_Runway";
+            this.lbl_Runway.Size = new System.Drawing.Size(44, 20);
+            this.lbl_Runway.TabIndex = 41;
+            this.lbl_Runway.Text = "Pista";
+            // 
+            // cmb_RunwayId
+            // 
+            this.cmb_RunwayId.FormattingEnabled = true;
+            this.cmb_RunwayId.Location = new System.Drawing.Point(244, 325);
+            this.cmb_RunwayId.Name = "cmb_RunwayId";
+            this.cmb_RunwayId.Size = new System.Drawing.Size(408, 28);
+            this.cmb_RunwayId.TabIndex = 40;
+            this.cmb_RunwayId.DropDown += new System.EventHandler(this.cmb_RunwayId_DropDown);
             // 
             // lbl_Plane
             // 
@@ -189,6 +213,7 @@
             this.date_DepartureTime.Name = "date_DepartureTime";
             this.date_DepartureTime.Size = new System.Drawing.Size(411, 26);
             this.date_DepartureTime.TabIndex = 34;
+            this.date_DepartureTime.ValueChanged += new System.EventHandler(this.date_DepartureTime_ValueChanged);
             // 
             // lbl_AdmissionTime
             // 
@@ -225,6 +250,7 @@
             this.date_AdmissionTime.Name = "date_AdmissionTime";
             this.date_AdmissionTime.Size = new System.Drawing.Size(411, 26);
             this.date_AdmissionTime.TabIndex = 30;
+            this.date_AdmissionTime.ValueChanged += new System.EventHandler(this.date_AdmissionTime_ValueChanged);
             // 
             // buttonInsert
             // 
@@ -284,5 +310,7 @@
         private System.Windows.Forms.Label lbl_Destination;
         private System.Windows.Forms.TextBox txt_Destination;
         private System.Windows.Forms.DateTimePicker date_DepartureTime;
+        private System.Windows.Forms.Label lbl_Runway;
+        private System.Windows.Forms.ComboBox cmb_RunwayId;
     }
 }

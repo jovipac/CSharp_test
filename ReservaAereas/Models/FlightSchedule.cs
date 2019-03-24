@@ -26,6 +26,8 @@ namespace ReservaAereas.Models
 
         public int Plane_id { get; set; }
 
+        public int Runway_id { get; set; }
+
         public int Status_id { get; set; }
     }
 }
